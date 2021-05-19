@@ -101,9 +101,8 @@ dataSource:
     pooled: true
     jmxExport: true
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: root
-    password: admin
-
+    username: 
+    password:        
 environments:
     development:
         dataSource:
