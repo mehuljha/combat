@@ -11,5 +11,8 @@ Grails app can work with in memory H2 Database, or you can configure any databas
 You can download MySQL server from https://dev.mysql.com/downloads/installer/
 If using MySQL database, you can configure the settings in the application.yml file for database name and credentials.
 
+Note Important:
+Please create a database first before running the application
+
 Open a command prompt and run comman grails run-app. 
 This command should start the application on default port 8080.
