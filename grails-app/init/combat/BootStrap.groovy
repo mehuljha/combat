@@ -8,9 +8,6 @@ class BootStrap {
         def adminRole = Role.findOrSaveWhere(authority: 'ROLE_ADMIN')
         def userRole = Role.findOrSaveWhere(authority: 'ROLE_USER')
 
-        def admin = User.findOrSaveWhere(username: 'admin', password: 'admin')
-        def user = User.findOrSaveWhere(username: 'mjha', password: 'admin')
-
     }
     def destroy = {
     }
