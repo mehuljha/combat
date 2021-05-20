@@ -41,12 +41,17 @@ class IssueController {
         def username = springSecurityService.authentication.principal.getUsername()
         def issue = new Issue(params)
         issue.createdBy = username
+        issue.numberOfUpvotes = 0
+        issue.numberOfDownvotes = 0
+        issue.numberOfComments = 0
         respond issue
     }
 
     def save(Issue issue) {
-        println issue.dump()
+        issue.clearErrors()
         issue.createdBy = springSecurityService.authentication.principal.getUsername()
+        println issue.dump()
+        issue.validate()
         println 'Issue created by::: ' + issue.createdBy
         if (issue == null) {
             notFound()
@@ -62,9 +67,11 @@ class IssueController {
         try {
             issue.id = UUID.randomUUID().toString()
             println 'Saving issue...'
-            issueService.save(issue)
+            issue.save(flush: true)
+            println 'Issue saved::: ' + issue
         } catch (ValidationException e) {
             println 'Validation exception'
+            println e.errors
             respond issue.errors, view:'create'
             return
         }

@@ -32,6 +32,9 @@
                             <g:textField name="createdBy" value="${issue.createdBy}" required disabled="true"/>
                         </f:field>
                         <f:field bean="issue" property="createdDate"/>
+                        <g:hiddenField name="numberOfComments" value="${issue.numberOfComments}" />
+                        <g:hiddenField name="numberOfUpvotes" value="${issue.numberOfUpvotes}" />
+                        <g:hiddenField name="numberOfDownvotes" value="${issue.numberOfDownvotes}" />
                 </fieldset>
                 <fieldset class="buttons">
                     <g:actionSubmit class="save" value="Create" action="save" />
